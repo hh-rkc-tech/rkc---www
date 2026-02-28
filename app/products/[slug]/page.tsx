@@ -128,7 +128,7 @@ export default async function ProductDetailPage({
                   Request a Quote →
                 </button>
               </Link>
-              <Link href="/contact">
+              <Link href={product.brochure}>
                 <button className="font-sans text-[0.6rem] tracking-[0.2em] uppercase text-fg-muted bg-transparent border border-border px-7 py-3.5 cursor-pointer hover:border-border-strong transition-colors">
                   Download Brochure →
                 </button>
