@@ -17,8 +17,10 @@ const sitemapLinks = [
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/rk_cinematics?igsh=MzdxbDhleXpsNDQy" },
-  // { label: "YouTube",   href: "#" },
-  // { label: "LinkedIn",  href: "#" },
+  { label: "YouTube",   href: "https://www.youtube.com/channel/UCQkB6hewTQ1cR_RJhR_359g" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/company/rkcinematics/" },
+  { label: "Facebook",  href: "https://www.facebook.com/people/RKCinematics/100095535724322/" },
+
 ];
 
 const aboutMeta = [
