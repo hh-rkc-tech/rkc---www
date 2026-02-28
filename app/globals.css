@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@import "locomotive-scroll/dist/locomotive-scroll.css";
+
+/* ============================================================
+   DARK MODE VARIANT — class-based (.dark on <html>)
+   ============================================================ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   DESIGN TOKENS — Light & Dark
+   ============================================================ */
+:root {
+  /* Light theme */
+  /* Backgrounds */
+  --bg-base:       #f0f0f0;
+  --bg-subtle:     #ffffff;
+  --bg-surface:    #ffffff;
+  --bg-elevated:   #f8f8f8;
+
+  /* Foregrounds */
+  --fg-base:       #111111;
+  --fg-muted:      rgba(17,17,17,0.80);
+  --fg-faint:      rgba(17,17,17,0.50);
+  --fg-ghost:      rgba(17,17,17,0.30);
+
+  /* Brand */
+  --accent:        #E7218B;
+  --accent-hover:  #E7218B;
+  --accent-subtle: rgba(255, 1, 115, 0.1);
+  --accent-border: rgba(255, 1, 115, 0.30);
+
+  /* Borders */
+  --border:        rgba(17,17,17,0.10);
+  --border-strong: rgba(17,17,17,0.18);
+  --border-faint:  rgba(17,17,17,0.05);
+
+  /* Form fields */
+  --field-bg:      rgba(17,17,17,0.04);
+  --field-border:  rgba(17,17,17,0.12);
+
+  /* Scrollbar */
+  --scroll-track:  #e4e4e4;
+  --scroll-thumb:  rgba(0,0,0,0.18);
+
+  /* Selection */
+  --selection-bg:  #007AFF;
+  --selection-fg:  #ffffff;
+}
+
+.dark {
+  /* Backgrounds — subtle is noticeably lighter than base for section distinction */
+  --bg-base:       #000;
+  --bg-subtle:     #191919;
+  --bg-surface:    #222222;
+  --bg-elevated:   #0d0d0d;
+
+  /* Foregrounds — match original design contrast levels */
+  --fg-base:       rgba(255,255,255,0.92);
+  --fg-muted:      rgba(255,255,255,0.75);
+  --fg-faint:      rgba(255,255,255,0.38);
+  --fg-ghost:      rgba(255,255,255,0.22);
+
+  /* Brand */
+  --accent:        #007AFF;
+  --accent-hover:  #0063CC;
+  --accent-subtle: rgba(0,122,255,0.12);
+  --accent-border: rgba(0,122,255,0.30);
+
+  /* Borders */
+  --border:        rgba(255,255,255,0.10);
+  --border-strong: rgba(255,255,255,0.16);
+  --border-faint:  rgba(255,255,255,0.05);
+
+  /* Form fields */
+  --field-bg:      rgba(255,255,255,0.04);
+  --field-border:  rgba(255,255,255,0.10);
+
+  /* Scrollbar */
+  --scroll-track:  #111111;
+  --scroll-thumb:  rgba(255,255,255,0.15);
+}
+
+/* ============================================================
+   TAILWIND THEME MAPPING
+   ============================================================ */
+@theme inline {
+  --color-bg-base:       var(--bg-base);
+  --color-bg-subtle:     var(--bg-subtle);
+  --color-bg-surface:    var(--bg-surface);
+  --color-bg-elevated:   var(--bg-elevated);
+
+  --color-fg-base:       var(--fg-base);
+  --color-fg-muted:      var(--fg-muted);
+  --color-fg-faint:      var(--fg-faint);
+  --color-fg-ghost:      var(--fg-ghost);
+
+  --color-accent:        var(--accent);
+  --color-accent-hover:  var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-border: var(--accent-border);
+
+  --color-border:        var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-faint:  var(--border-faint);
+
+  --color-field-bg:      var(--field-bg);
+  --color-field-border:  var(--field-border);
+
+  --font-sans:     var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display:  var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ============================================================
+   BASE LAYER
+   CRITICAL: Must be inside @layer base so Tailwind utility
+   classes (px-*, py-*, gap-*, etc.) can override them.
+   Unlayered CSS in Tailwind v4 beats @layer utilities.
+   ============================================================ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--fg-base);
+    font-family: var(--font-inter), sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--scroll-track); }
+  ::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 2px; }
+
+  ::selection { background: var(--selection-bg); color: var(--selection-fg); }
+
+  /* Locomotive scroll */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+@layer utilities {
+  /**
+   * Site-wide fluid horizontal gutter.
+   * Grows from 20px on mobile → ~100px on wide desktop.
+   * Use on all section wrappers and cards that bleed to screen edge.
+   */
+  .px-site {
+    padding-left:  clamp(1.25rem, 6vw, 6.5rem);
+    padding-right: clamp(1.25rem, 6vw, 6.5rem);
+  }
+  .pl-site {
+    padding-left: clamp(1.25rem, 6vw, 6.5rem);
+  }
+  .pr-site {
+    padding-right: clamp(1.25rem, 6vw, 6.5rem);
+  }
+  .mx-site {
+    margin-left:  clamp(1.25rem, 6vw, 6.5rem);
+    margin-right: clamp(1.25rem, 6vw, 6.5rem);
+  }
+
+  /* Marquee animation */
+  .animate-marquee {
+    animation: marquee 28s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* ============================================================
+   MARQUEE KEYFRAME (keyframes are always unlayered)
+   ============================================================ */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
