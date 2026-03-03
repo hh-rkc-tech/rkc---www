@@ -1,3 +1,4 @@
+import { ORIGIN } from "@/lib/constants";
 import type { MetadataRoute } from "next";
 
 /**
@@ -10,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://elgajjar.com/sitemap.xml",
+    sitemap: `${ORIGIN}/sitemap.xml`,
   };
 }

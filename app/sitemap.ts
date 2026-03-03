@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/lib/products";
+// import { products } from "@/lib/products";
+import { ORIGIN } from "@/lib/constants";
 
 /**
  * Generate sitemap for SEO.
  * Includes all static pages and dynamic product pages.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://elgajjar.com";
+  const baseUrl = ORIGIN;
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -22,24 +23,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/innovation`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/showcase`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+    // {
+    //   url: `${baseUrl}/innovation`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "monthly",
+    //   priority: 0.7,
+    // },
+    // {
+    //   url: `${baseUrl}/services`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "monthly",
+    //   priority: 0.7,
+    // },
+    // {
+    //   url: `${baseUrl}/showcase`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "monthly",
+    //   priority: 0.7,
+    // },
+    
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
@@ -49,12 +51,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic product pages
-  const productPages: MetadataRoute.Sitemap = products.map((product) => ({
-    url: `${baseUrl}/products/${product.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
+  // const productPages: MetadataRoute.Sitemap = products.map((product) => ({
+  //   url: `${baseUrl}/products/${product.slug}`,
+  //   lastModified: new Date(),
+  //   changeFrequency: "weekly" as const,
+  //   priority: 0.8,
+  // }));
 
-  return [...staticPages, ...productPages];
+  return [...staticPages,
+    //  ...productPages
+  ];
 }

@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { ORIGIN } from "@/lib/constants";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -46,7 +50,7 @@ export const metadata: Metadata = {
   authors: [{ name: "RK Cinematics" }],
   creator: "RK Cinematics",
   publisher: "RK Cinematics",
-  metadataBase: new URL("https://elgajjar.com"),
+  metadataBase: new URL(ORIGIN),
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -78,6 +82,13 @@ export default function RootLayout({
        * suppressHydrationWarning above is required because the class
        * differs between server render and client hydration.
        */}
+      {process.env.VERCEL_ENV === "production" ?
+        <>
+          <GoogleTagManager gtmId="GTM-W6G4RGTQ" />
+          <SpeedInsights />
+          <Analytics />
+        </> : null
+      }
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -104,8 +115,8 @@ export default function RootLayout({
            * navigation. This prevents the cursor jumping back to (0,0)
            * every time the user navigates to a new page.
            */}
-             {/* {isDesktop ? <CustomCursor /> : null} */}
-           {children}
+          {/* {isDesktop ? <CustomCursor /> : null} */}
+          {children}
         </ThemeProvider>
       </body>
     </html>
