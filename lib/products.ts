@@ -22,7 +22,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: "SETU-20",
-    slug: "SETU-20",
+    slug: "setu-20",
     name: "SETU-20",
     brochure: "/brochures/catalog_setu.pdf",
     category: "Telescopic Crane",
@@ -47,7 +47,7 @@ export const products: Product[] = [
   },
   {
     id: "SETU-32",
-    slug: "SETU-32",
+    slug: "setu-32",
     name: "SETU-32",
     brochure: "/brochures/catalog_setu.pdf",
     category: "Telescopic Crane",
@@ -72,7 +72,7 @@ export const products: Product[] = [
   },
   {
     id: "TRU-BASE GLIDER",
-    slug: "tru-base-glider",
+    slug: "trubase-glider",
     name: "TRU-BASE GLIDER",
     brochure: "/brochures/catalog_trubase.pdf",
     category: "Glider",
@@ -123,7 +123,7 @@ export const products: Product[] = [
   },
   {
     id: "DUAL AXIS GLIDER 15",
-    slug: "dual-axis-glider-1",
+    slug: "dual-axis-glider-15",
     name: "DUAL AXIS GLIDER (15)",
     brochure: "/brochures/catalog_dualaxis.pdf",
     category: "Glider",
@@ -149,7 +149,7 @@ export const products: Product[] = [
   },
   {
     id: "DUAL AXIS GLIDER 25",
-    slug: "dual-axis-glider",
+    slug: "dual-axis-glider-25",
     name: "DUAL AXIS GLIDER (25)",
     brochure: "/brochures/catalog_dualaxis.pdf",
     category: "Glider",
@@ -174,7 +174,7 @@ export const products: Product[] = [
   },
   {
     id: "DIRECTORS BAY",
-    slug: "directors-bay-3",
+    slug: "director-s-bay-3-ft",
     name: "DIRECTORS BAY 3'Ft",
     brochure: "/brochures/catalog_directorbay.pdf",
     category: "Cart",
@@ -199,15 +199,15 @@ export const products: Product[] = [
   },
   {
     id: "DIRECTORS BAY",
-    slug: "directors-bay-4",
-    name: "DIRECTORS BAY 4'Ft",
+    slug: "director-s-bay-3-5-ft",
+    name: "DIRECTORS BAY 3-5'Ft",
     brochure: "/brochures/catalog_directorbay.pdf",
     category: "Cart",
     tagline: "Set Command Center",
     desc: "20-foot reach. Entry-level performance with professional-grade belt drive. Ideal for studio and mid-scale productions.",
     specs: ["Multi Function", "Rigging Adjustment", "Light Weight & Easy To Carry"],
     detailSpecs: [
-      { label: "Dimensions", value: "Length X Width X Height 4’ft   X 2’ft  X 3’ft" },
+      { label: "Dimensions", value: "Length X Width X Height 3.5’ft   X 2’ft  X 3’ft" },
       { label: "Function", value: "Multi Function" },
       { label: "Adjustment", value: "Rigging Adjustment" },
       { label: "Mobility", value: "Light Weight & Easy To Carry" },
@@ -224,7 +224,7 @@ export const products: Product[] = [
   },
   {
     id: "DIRECTORS BAY",
-    slug: "directors-bay-4.5",
+    slug: "director-s-bay-4-5-ft",
     name: "DIRECTORS BAY 4.5'Ft",
     brochure: "/brochures/catalog_directorbay.pdf",
     category: "Cart",

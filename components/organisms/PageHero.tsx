@@ -33,13 +33,13 @@ export default function PageHero({
   return (
     <div
       className={cn(
-        "px-site pt-36 md:pt-40 pb-20 md:pb-24 border-b border-border bg-bg-subtle",
+        "px-site pt-36 md:pt-40 pb-20 md:pb-24  bg-bg-subtle",
         className
       )}
     >
       {tag && <SectionTag>{tag}</SectionTag>}
 
-      <Typography variant="display-xl" as="h1" className="mb-10">
+      <Typography variant="display-lg" as="h1" className="mb-10">
         {title}
       </Typography>
 

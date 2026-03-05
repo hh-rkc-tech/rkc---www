@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProductsPageContent } from "./ProductsPageContent";
+import ProductsPageContent from "./ProductsPageContent";
 import { ORIGIN } from "@/lib/constants";
 
 export const metadata: Metadata = {
