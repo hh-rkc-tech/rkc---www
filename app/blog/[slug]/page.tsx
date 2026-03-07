@@ -53,6 +53,8 @@ export default async function BlogPostPage(props: { params: { slug: string } }) 
             <PageHero
                 // tag="[ Blogs ]"
                 title={post.title}
+                titleVariant="display-md"
+                className="pb-4 md:pb-10"
                 // description="Every unit ships with factory load certification and a 48-hour SLA."
             />
             <article>

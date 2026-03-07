@@ -1,4 +1,4 @@
-import Typography from "@/components/atoms/Typography";
+import Typography, { TypographyVariantProps } from "@/components/atoms/Typography";
 import SectionTag from "@/components/atoms/SectionTag";
 import { cn } from "@/lib/utils";
 
@@ -7,6 +7,7 @@ interface PageHeroProps {
   tag?: string;
   /** Large display title — the page name */
   title: string;
+  titleVariant?: NonNullable<TypographyVariantProps["variant"]>; 
   /** Optional one-paragraph description beneath the title */
   description?: string;
   /** Extra Tailwind classes to override or extend the root element */
@@ -27,6 +28,7 @@ interface PageHeroProps {
 export default function PageHero({
   tag,
   title,
+  titleVariant = "display-lg",
   description,
   className,
 }: PageHeroProps) {
@@ -39,7 +41,7 @@ export default function PageHero({
     >
       {tag && <SectionTag>{tag}</SectionTag>}
 
-      <Typography variant="display-lg" as="h1" className="mb-10">
+      <Typography variant={titleVariant} as="h1" className="mb-10">
         {title}
       </Typography>
 
