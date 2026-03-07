@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: "Products",   href: "/products" },
   // { label: "Innovation", href: "/innovation" },
   // { label: "Showcase",   href: "/showcase" },
-  // { label: "Services",   href: "/services" },
+  { label: "Blog",   href: "/blog" },
   { label: "Contact",    href: "/contact" },
 ];
 
@@ -99,7 +99,7 @@ export default function Navbar({ visible = true, isHomepage = false }: NavbarPro
 
         {/* Mobile: theme toggle + hamburger */}
         <div className="flex md:hidden items-center gap-3">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="flex flex-col gap-[5px] p-1 bg-transparent border-none"

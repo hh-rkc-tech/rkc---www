@@ -1,11 +1,54 @@
+"use client"
+
+
 import Link from "next/link";
 import SectionTag from "@/components/atoms/SectionTag";
 import Heading from "@/components/atoms/Heading";
 import ProductCard from "@/components/molecules/ProductCard";
-import { products } from "@/lib/products";
 import Typography from "../atoms/Typography";
+import { useEffect, useState } from "react";
+import { client } from "@/lib/sanity/client";
+
+const query = `*[_type == "product"] {
+  _id,
+  name,
+  "slug": slug.current,
+  tagline,
+  tag,
+  category->, 
+  specs,
+  "img": img, 
+  "thumbnail": thumbnail.asset->url
+}`;
+
+
+
 
 export default function FeaturedWorks() {
+  
+  const [products, setProducts] = useState<any[]>([]);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch data inside useEffect for Client Components
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await client.fetch(query);
+        setProducts(data);
+      } catch (error) {
+        console.error("Sanity fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const filtered = activeFilter === "All"
+    ? products
+    : products.filter((p) => p.category === activeFilter);
   return (
     <section
       id="products"
@@ -41,7 +84,7 @@ export default function FeaturedWorks() {
 
       {/* Product grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((p, i) => (
+        {filtered.map((p, i) => (
           <ProductCard key={i} product={p} />
         ))}
       </div>

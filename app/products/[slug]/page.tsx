@@ -5,68 +5,98 @@ import Typography from "@/components/atoms/Typography";
 import { cn } from "@/lib/utils";
 import PageWrapper from "@/components/templates/PageWrapper";
 import { products, getProductBySlug, getAdjacentProducts } from "@/lib/products";
+import { client } from "@/lib/sanity/client";
+import { BlockContent } from "@/components/utility/portable-text";
+import { createImageUrlBuilder } from "@sanity/image-url";
+
+const builder = createImageUrlBuilder(client);
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+const query = `*[_type == "product"  && slug.current == $slug][0] {
+  _id,
+  name,
+  "slug": slug.current,
+  tagline,
+  tag,
+  category->, 
+  specs,
+  desc,
+  detailSpecs,
+  "img": img, 
+  "thumbnail": thumbnail.asset->url,
+  "brochure" : brochure.asset->url,
+}`;
 
 // Generate static pages for all products at build time
-export function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
-}
+export default async function productDetailsPage(props: any) {
+  const params = (await props.params)
+    const slug = params.slug;
+    console.log(slug);
+    const product = await client.fetch(query, { slug });
+    
+    if(!product)
+    {
+      return(
+        <div className="error-state">
+                <h1>404 - Product Not Found</h1>
+                <p>The Product you are looking for does not exist.</p>
+            </div>
+      )
+    }
+
+
 
 // Generate metadata for SEO
-export function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
-}): Promise<Metadata> {
-  return params.then(({ slug }) => {
-    const product = getProductBySlug(slug);
-    if (!product) return { title: "Product Not Found" };
+// export function generateMetadata({ 
+//   params 
+// }: { 
+//   params: Promise<{ slug: string }> 
+// }): Promise<Metadata> {
+//   return params.then(({ slug }) => {
+//     const product = getProductBySlug(slug);
+//     if (!product) return { title: "Product Not Found" };
     
-    return {
-      title: `${product.name} | RK Cinematics`,
-      description: product.desc,
-      openGraph: {
-        title: `${product.name} | RK Cinematics`,
-        description: product.tagline,
-        images: [product.img],
-        type: "website",
-      },
-    };
-  });
-}
+//     return {
+//       title: `${product.name} | RK Cinematics`,
+//       description: product.desc,
+//       openGraph: {
+//         title: `${product.name} | RK Cinematics`,
+//         description: product.tagline,
+//         images: [product.img],
+//         type: "website",
+//       },
+//     };
+//   });
+// }
 
 // Server Component - no "use client" needed for the page itself
-export default async function ProductDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const product = getProductBySlug(slug);
+// export default async function ProductDetailPag({params,}: {params: Promise<{ slug: string }>;}) {
+//   const { slug } = await params;
+//   const product = getProductBySlug(slug);
 
-  if (!product) notFound();
+//   if (!product) notFound();
 
-  const { prev, next } = getAdjacentProducts(slug);
-  const maxPayload = product.loadChart
-    ? Math.max(...product.loadChart.map((r) => r.payload))
-    : 100;
+  // const { prev, next } = getAdjacentProducts(slug);
+  // const maxPayload = product.loadChart
+  //   ? Math.max(...product.loadChart.map((r) => r.payload))
+  //   : 100;
 
   return (
+    
     <PageWrapper>
       {/* ── Hero ── */}
       <section className="relative w-full aspect-2/1 overflow-hidden flex items-end">
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={product.img}
+          src={urlFor(product.img).width(800).url()}
           alt={product.name}
           className="absolute inset-0 w-full h-full object-cover brightness-[0.45] grayscale-[0.2] z-0"
         />
-
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/60 to-transparent z-[1]" />
-
         {/* Breadcrumb */}
         <div className="absolute top-28 left-[clamp(1.25rem,6vw,6.5rem)] z-[2] flex items-center gap-3">
           <Link
@@ -80,12 +110,11 @@ export default async function ProductDetailPage({
             {product.name}
           </span>
         </div>
-
         {/* Hero text */}
         <div className="relative z-[2] px-site pb-14 w-full flex justify-between items-end flex-wrap gap-4">
           <div>
             <p className="font-sans text-[0.58rem] tracking-[0.24em] uppercase text-accent mb-3">
-              {product.category}
+              {product.category.title}
             </p>
             <Typography variant="display-lg" as="h1" className="m-0">
               {product.name}
@@ -94,10 +123,9 @@ export default async function ProductDetailPage({
               {product.tagline}
             </p>
           </div>
-
           {/* Spec pills row */}
           <div className="flex gap-2 flex-wrap">
-            {product.specs.map((spec) => (
+            {product.specs.map((spec:any) => (
               <span
                 key={spec}
                 className="font-sans text-[0.55rem] tracking-[0.12em] uppercase text-fg-muted border border-border-faint px-3 py-1.5 backdrop-blur-md bg-black/30"
@@ -117,8 +145,8 @@ export default async function ProductDetailPage({
             <p className="font-sans text-[0.6rem] tracking-[0.28em] uppercase text-accent mb-6">
               [Overview]
             </p>
-            <p className="font-sans font-light text-[clamp(1.1rem,2vw,1.5rem)] leading-[1.65] tracking-[-0.01em] text-fg-muted mb-10">
-              {product.desc}
+            <p className="font-sans font-light text-lg leading-[1.65] tracking-[-0.01em] text-fg-muted mb-10">
+              <BlockContent value={product.desc} />
             </p>
 
             {/* CTA buttons */}
@@ -142,7 +170,7 @@ export default async function ProductDetailPage({
               Specifications
             </p>
             <div>
-              {product.detailSpecs.map((spec, i) => (
+              {product.detailSpecs?.map?.((spec:any, i : any) => (
                 <div
                   key={spec.label}
                   className={cn(
@@ -178,7 +206,7 @@ export default async function ProductDetailPage({
               </span>
             </Typography>
 
-            <div className="max-w-[640px]">
+            {/* <div className="max-w-[640px]">
               {product.loadChart.map((row) => (
                 <div key={row.extension} className="mb-6">
                   <div className="flex justify-between mb-2 items-center">
@@ -196,14 +224,14 @@ export default async function ProductDetailPage({
                   </div>
                   <div className="h-1 bg-border/30 rounded-sm overflow-hidden">
                     {/* Dynamic width must be inline — Tailwind can't generate arbitrary runtime values */}
-                    <div
+                    {/* <div
                       className="h-full bg-gradient-to-r from-accent to-accent/80 rounded-sm transition-[width] duration-1000 ease-[cubic-bezier(0.76,0,0.24,1)]"
                       style={{ width: `${(row.payload / maxPayload) * 100}%` }}
                     />
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */} 
 
             <p className="font-sans text-[0.58rem] text-fg-ghost tracking-[0.04em] mt-8 leading-[1.7]">
               All load values tested under factory certification conditions.
@@ -255,7 +283,7 @@ export default async function ProductDetailPage({
       </section>
 
       {/* ── Prev / Next Product navigation ── */}
-      <section
+      {/* <section
         className={cn(
           "px-site grid",
           prev && next ? "grid-cols-2" : "grid-cols-1"
@@ -296,7 +324,8 @@ export default async function ProductDetailPage({
             </div>
           </Link>
         )}
-      </section>
+      </section> */}
     </PageWrapper>
   );
-}
+  }
+

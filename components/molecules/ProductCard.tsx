@@ -6,6 +6,13 @@ import SpecPill from "@/components/atoms/SpecPill";
 import Typography from "@/components/atoms/Typography";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/products";
+import { createImageUrlBuilder } from "@sanity/image-url";
+import { client } from "@/lib/sanity/client";
+
+const builder = createImageUrlBuilder(client);
+function urlFor(source: any) {
+  return builder.image(source);
+}
 
 interface ProductCardProps {
   product: Product;
@@ -29,7 +36,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
         <div className="relative overflow-hidden aspect-[4/3]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={product.img}
+            src={urlFor(product.img).url()}
             alt={product.name}
             className={cn(
               "w-full h-full object-cover block brightness-75",
@@ -56,9 +63,9 @@ export default function ProductCard({ product, className }: ProductCardProps) {
         <div className="px-5 pt-6 pb-7">
           <div className="flex justify-between items-start mb-3">
             <div>
-              <p className="font-sans text-[0.55rem] tracking-[0.22em] uppercase text-accent mb-1">
+              {/* <p className="font-sans text-[0.55rem] tracking-[0.22em] uppercase text-accent mb-1">
                 {product.category}
-              </p>
+              </p> */}
               <Typography variant="heading-product" as="h3">
                 {product.name}
               </Typography>

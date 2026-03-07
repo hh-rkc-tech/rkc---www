@@ -6,29 +6,30 @@ import MetaItem from "@/components/molecules/MetaItem";
 import SectionTag from "@/components/atoms/SectionTag";
 
 const sitemapLinks = [
-  { label: "Home",       href: "/" },
-  { label: "Products",   href: "/products" },
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "Blog", href: "/blog" },
   // { label: "Innovation", href: "/innovation" },
   // { label: "Showcase",   href: "/showcase" },
   // { label: "Services",   href: "/services" },
-  { label: "Contact",    href: "/contact" },
+  { label: "Contact", href: "/contact" },
   // { label: "About",      href: "#about" },
 ];
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/rk_cinematics?igsh=MzdxbDhleXpsNDQy" },
-  { label: "YouTube",   href: "https://www.youtube.com/channel/UCQkB6hewTQ1cR_RJhR_359g" },
-  { label: "LinkedIn",  href: "https://www.linkedin.com/company/rkcinematics/" },
-  { label: "Facebook",  href: "https://www.facebook.com/people/RKCinematics/100095535724322/" },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCQkB6hewTQ1cR_RJhR_359g" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/rkcinematics/" },
+  { label: "Facebook", href: "https://www.facebook.com/people/RKCinematics/100095535724322/" },
 
 ];
 
 const aboutMeta = [
-  { label: "Founded",         value: "2016" },
-  { label: "Headquarters",    value: "Ahmedabad, Gujarat" },
+  { label: "Founded", value: "2016" },
+  { label: "Headquarters", value: "Ahmedabad, Gujarat" },
   { label: "Primary Markets", value: "Mumbai · Hyderabad" },
-  { label: "Products",        value: "RKC-20 / RKC-40 / RKC-60" },
-  { label: "SLA Zone",        value: "48-Hour Response" },
+  { label: "Products", value: "RKC-20 / RKC-40 / RKC-60" },
+  { label: "SLA Zone", value: "48-Hour Response" },
 ];
 
 export default function Footer() {
@@ -135,9 +136,9 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          {/* <p className="font-sans text-[0.58rem] tracking-[0.16em] uppercase text-fg-ghost">
-            Privacy Policy
-          </p> */}
+          <p className="font-sans text-[0.58rem] tracking-[0.16em] uppercase text-fg-ghost">
+            Design and developed by <a href="https://honeyhexa.com" className="text-indigo-500" >Honey Hexa</a>
+          </p>
         </div>
       </div>
     </footer>
