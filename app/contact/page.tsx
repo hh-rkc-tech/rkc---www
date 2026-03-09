@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
   metadataBase: new URL(ORIGIN),
   alternates: {
-    canonical: `/`,
+    canonical: `/contact`,
   },
   openGraph: {
     title: "RK Cinematics | Contact",
     description:
       "Get in touch with RK Cinematics. Request a quote for telescopic camera cranes, mobile bases, and production carts. 24/7 AOG support line available.",
-    url: `/`,
+    url: `/contact`,
     siteName: "RK Cinematics",
     images: [
       {

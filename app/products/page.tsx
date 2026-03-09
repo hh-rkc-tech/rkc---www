@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 
   metadataBase: new URL(ORIGIN),
   alternates: {
-    canonical: `/`,
+    canonical: `/products`,
   },
   openGraph: {
     title: "RK Cinematics | Products",
     description: "Precision-engineered telescopic camera cranes, mobile bases, and production carts. SETU-20, SETU-40, SETU-60 with 48-hour SLA.",
-    url: `/`,
+    url: `/products`,
     siteName: "RK Cinematics",
     images: [
       {

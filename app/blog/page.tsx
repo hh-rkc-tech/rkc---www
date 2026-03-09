@@ -9,6 +9,8 @@ import { createImageUrlBuilder } from "@sanity/image-url";
 import Link from "next/link";
 import { useState } from "react";
 
+//TODO:Add metadata
+
 const builder = createImageUrlBuilder(client);
 function urlFor(source: any) {
     return builder.image(source);
