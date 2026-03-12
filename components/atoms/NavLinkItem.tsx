@@ -25,8 +25,8 @@ export default function NavLinkItem({ href, children, className, onClick, scroll
         "font-sans text-[0.65rem] tracking-[0.18em] uppercase",
         "transition-colors duration-300 no-underline",
         isHomepage
-        ? (scrolled ? "text-black hover:text-blue-500" : "text-white hover:text-blue-500")
-        :  (scrolled ? "text-black hover:text-blue-500" : "text-black hover:text-blue-500"),
+        ? (scrolled ? "text-black hover:text-[#E7218B]" : "text-white hover:text-[#E7218B]")
+        :  (scrolled ? "text-black hover:text-[#E7218B]" : "text-black hover:text-[#E7218B]"),
         className
       )}
     >

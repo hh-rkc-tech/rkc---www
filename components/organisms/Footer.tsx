@@ -9,6 +9,7 @@ const sitemapLinks = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "Blog", href: "/blog" },
+  { label: "Events",   href: "/event" },
   // { label: "Innovation", href: "/innovation" },
   // { label: "Showcase",   href: "/showcase" },
   // { label: "Services",   href: "/services" },
