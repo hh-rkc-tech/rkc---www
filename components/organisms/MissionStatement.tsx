@@ -5,15 +5,19 @@ import Heading from "@/components/atoms/Heading";
 import Button from "@/components/atoms/Button";
 import MetaItem from "@/components/molecules/MetaItem";
 import { Typography } from "../atoms/Typography";
+import { useRouter } from "next/navigation";
 
 const meta = [
-  { label: "Founded",         value: "2022" },
-  { label: "Headquarters",    value: "Ahmedabad, Gujarat" },
+  { label: "Founded", value: "2022" },
+  { label: "Headquarters", value: "Ahmedabad, Gujarat" },
   { label: "Primary Markets", value: "Mumbai · Hyderabad" },
-  { label: "Specialty",       value: "Telescopic Cranes, Sliders, Dual Axis slider, Camera carts, Dollys." },
+  { label: "Specialty", value: "Telescopic Cranes, Sliders, Dual Axis slider, Camera carts, Dollys." },
 ];
 
 export default function MissionStatement() {
+
+const router = useRouter()
+
   return (
     <section className="border-t border-border px-site py-28 md:py-36">
       {/* Top split */}
@@ -58,9 +62,10 @@ export default function MissionStatement() {
       <div className="mt-16">
         <Button
           variant="outline-accent"
-          onClick={() =>
-            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-          }
+          onClick={() => {
+            // Redirect to contact page
+            router.push("/contact")
+          }}
         >
           Request Full Catalog →
         </Button>
