@@ -5,7 +5,7 @@ import TestimonialCard from "@/components/molecules/TestimonialCard";
 const testimonials = [
   {
     quote:
-      "We tested the RKC-40 on a 45-day feature in Film City. The extension speed matched what I've seen from imported Technocranes — but when something needed adjusting mid-shoot, the engineer was there in an hour. That doesn't happen with foreign equipment.",
+      "We tested the SETU-40 on a 45-day feature in Film City. The extension speed matched what I've seen from imported Technocranes — but when something needed adjusting mid-shoot, the engineer was there in an hour. That doesn't happen with foreign equipment.",
     name: "Rajeev Menon",
     role: "Director of Photography",
     company: "@Yash Raj Films",
@@ -29,7 +29,7 @@ const testimonials = [
   },
   {
     quote:
-      "I spec'd the RKC-60 for an aerial stunt sequence in Rajasthan. 60 feet, full extension, 55 kg payload including the remote head. Zero whip on fast pans. The truss geometry they've built into the boom sections is genuinely better engineering than what I've rented from Europe.",
+      "I spec'd the SETU-60 for an aerial stunt sequence in Rajasthan. 60 feet, full extension, 55 kg payload including the remote head. Zero whip on fast pans. The truss geometry they've built into the boom sections is genuinely better engineering than what I've rented from Europe.",
     name: "Vikram Balaji",
     role: "Stunt & Special Effects DoP",
     company: "@S.S. Rajamouli Unit",

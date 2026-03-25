@@ -5,12 +5,12 @@ const advantages = [
   {
     tag: "[01]",
     title: "30% Lighter",
-    desc: "7075-T6 aerospace aluminum versus the mild steel used by legacy crane manufacturers. Less mass means faster acceleration, smaller counterweight, and a lighter total payload on the base.",
+    desc: "Aerospace aluminum versus the mild steel used by legacy crane manufacturers. Less mass means faster acceleration, smaller counterweight, and a lighter total payload on the base.",
   },
   {
     tag: "[02]",
     title: "Local Engineering Support",
-    desc: "When a crane fails at 07:00 on a ₹2 crore production day, you don't call Poland. Our engineers are in Ahmedabad with a replacement unit ready to roll. 48-hour SLA guarantee in Mumbai and Hyderabad.",
+    desc: "Our engineers are in Ahmedabad with a replacement unit ready to roll. 24 to 48-hour SLA guarantee in Mumbai and Hyderabad.",
   },
   {
     tag: "[03]",
@@ -25,7 +25,7 @@ const advantages = [
   {
     tag: "[04]",
     title: "Precision Motion, Not Just a Lift",
-    desc: "Our cranes are engineered as precision motion control systems, not glorified elevators. Active digital leveling, stabilized telescopic arm motion, and vibration damping ensure fluid, repeatable moves every time.",
+    desc: "Our cranes are engineered as precision motion control systems, not glorified elevators. Stabilized telescopic arm motion, and vibration damping ensure fluid, repeatable moves every time.",
   }
 ];
 
@@ -38,10 +38,10 @@ export default function AdvantagesSection() {
           <Heading>
             Why Indian productions
             <br />
-            <span className="text-fg-faint">are switching to RKC.</span>
+            <span className="text-fg-faint">are switching to RK Cinematics.</span>
           </Heading>
           <p className="font-sans text-[0.6rem] tracking-[0.28em] uppercase text-fg-ghost pt-2">
-            [The RKC Advantage]
+            [The RK Cinematics Advantage]
           </p>
         </div>
       </div>

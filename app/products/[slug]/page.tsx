@@ -32,51 +32,50 @@ const query = `*[_type == "product"  && slug.current == $slug][0] {
 // Generate static pages for all products at build time
 export default async function productDetailsPage(props: any) {
   const params = (await props.params)
-    const slug = params.slug;
-    console.log(slug);
-    const product = await client.fetch(query, { slug });
-    
-    if(!product)
-    {
-      return(
-        <div className="error-state">
-                <h1>404 - Product Not Found</h1>
-                <p>The Product you are looking for does not exist.</p>
-            </div>
-      )
-    }
+  const slug = params.slug;
+  console.log(slug);
+  const product = await client.fetch(query, { slug });
+
+  if (!product) {
+    return (
+      <div className="error-state">
+        <h1>404 - Product Not Found</h1>
+        <p>The Product you are looking for does not exist.</p>
+      </div>
+    )
+  }
 
 
 
-// Generate metadata for SEO
-// export function generateMetadata({ 
-//   params 
-// }: { 
-//   params: Promise<{ slug: string }> 
-// }): Promise<Metadata> {
-//   return params.then(({ slug }) => {
-//     const product = getProductBySlug(slug);
-//     if (!product) return { title: "Product Not Found" };
-    
-//     return {
-//       title: `${product.name} | RK Cinematics`,
-//       description: product.desc,
-//       openGraph: {
-//         title: `${product.name} | RK Cinematics`,
-//         description: product.tagline,
-//         images: [product.img],
-//         type: "website",
-//       },
-//     };
-//   });
-// }
+  // Generate metadata for SEO
+  // export function generateMetadata({ 
+  //   params 
+  // }: { 
+  //   params: Promise<{ slug: string }> 
+  // }): Promise<Metadata> {
+  //   return params.then(({ slug }) => {
+  //     const product = getProductBySlug(slug);
+  //     if (!product) return { title: "Product Not Found" };
 
-// Server Component - no "use client" needed for the page itself
-// export default async function ProductDetailPag({params,}: {params: Promise<{ slug: string }>;}) {
-//   const { slug } = await params;
-//   const product = getProductBySlug(slug);
+  //     return {
+  //       title: `${product.name} | RK Cinematics`,
+  //       description: product.desc,
+  //       openGraph: {
+  //         title: `${product.name} | RK Cinematics`,
+  //         description: product.tagline,
+  //         images: [product.img],
+  //         type: "website",
+  //       },
+  //     };
+  //   });
+  // }
 
-//   if (!product) notFound();
+  // Server Component - no "use client" needed for the page itself
+  // export default async function ProductDetailPag({params,}: {params: Promise<{ slug: string }>;}) {
+  //   const { slug } = await params;
+  //   const product = getProductBySlug(slug);
+
+  //   if (!product) notFound();
 
   // const { prev, next } = getAdjacentProducts(slug);
   // const maxPayload = product.loadChart
@@ -84,32 +83,37 @@ export default async function productDetailsPage(props: any) {
   //   : 100;
 
   return (
-    
+
     <PageWrapper>
       {/* ── Hero ── */}
-      <section className="relative w-full aspect-2/1 overflow-hidden flex items-end">
-        {/* Background image */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={urlFor(product.img).width(800).url()}
-          alt={product.name}
-          className="absolute inset-0 w-full h-full object-cover brightness-[0.45] grayscale-[0.2] z-0"
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/60 to-transparent z-[1]" />
-        {/* Breadcrumb */}
-        <div className="absolute top-28 left-[clamp(1.25rem,6vw,6.5rem)] z-[2] flex items-center gap-3">
-          <Link
-            href="/products"
-            className="font-sans text-[0.58rem] tracking-[0.2em] uppercase text-fg-ghost hover:text-fg-faint transition-colors no-underline"
-          >
-            Products
-          </Link>
-          <span className="text-fg-ghost text-[0.55rem]">/</span>
-          <span className="font-sans text-[0.58rem] tracking-[0.2em] uppercase text-accent">
-            {product.name}
-          </span>
+      <section className="relative w-full h-screen aspect-2/1 flex items-end">
+        <div className="">
+          {/* Background image */}
+          <img
+            src={urlFor(product.img).width(800).url()}
+            alt={product.name}
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.45] grayscale-[0.2] z-0"
+          />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/60 to-transparent z-[1]" />
+
+          {/* Breadcrumb */}
+          <div className="absolute top-28 left-[clamp(1.25rem,6vw,6.5rem)] z-[2] flex items-center gap-3">
+            <Link
+              href="/products"
+              className="font-sans text-[0.58rem] tracking-[0.2em] uppercase text-fg-ghost hover:text-fg-faint transition-colors no-underline"
+            >
+              Products
+            </Link>
+            <span className="text-fg-ghost text-[0.55rem]">/</span>
+            <span className="font-sans text-[0.58rem] tracking-[0.2em] uppercase text-accent">
+              {product.name}
+            </span>
+          </div>
+
         </div>
+
         {/* Hero text */}
         <div className="relative z-[2] px-site pb-14 w-full flex justify-between items-end flex-wrap gap-4">
           <div>
@@ -124,8 +128,8 @@ export default async function productDetailsPage(props: any) {
             </p>
           </div>
           {/* Spec pills row */}
-          <div className="flex gap-2 flex-wrap">
-            {product.specs.map((spec:any) => (
+          <div className="flex gap-2 flex-wrap py-5">
+            {product.specs.map((spec: any) => (
               <span
                 key={spec}
                 className="font-sans text-[0.55rem] tracking-[0.12em] uppercase text-fg-muted border border-border-faint px-3 py-1.5 backdrop-blur-md bg-black/30"
@@ -135,10 +139,12 @@ export default async function productDetailsPage(props: any) {
             ))}
           </div>
         </div>
+
       </section>
 
       {/* ── Description + Detailed Specs ── */}
-      <section className="border-b border-border py-24 px-site">
+      <section className="border-b border-border px-site">
+
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           {/* Left: description */}
           <div>
@@ -150,7 +156,7 @@ export default async function productDetailsPage(props: any) {
             </p>
 
             {/* CTA buttons */}
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex gap-3 flex-wrap mb-5">
               <Link href="/contact">
                 <button className="font-sans text-[0.6rem] tracking-[0.2em] uppercase text-white bg-accent border border-accent px-7 py-3.5 cursor-pointer hover:bg-accent/90 transition-colors">
                   Request a Quote →
@@ -165,12 +171,13 @@ export default async function productDetailsPage(props: any) {
           </div>
 
           {/* Right: spec table */}
+          {product.detailSpecs && product.detailSpecs.length > 0 ? (
           <div>
-            <p className="font-sans text-[0.6rem] tracking-[0.28em] uppercase text-fg-ghost mb-6">
+            <p className="font-sans text-[0.6rem] tracking-[0.28em] uppercase text-fg-ghost mb-6 ">
               Specifications
             </p>
             <div>
-              {product.detailSpecs?.map?.((spec:any, i : any) => (
+              {product.detailSpecs?.map?.((spec: any, i: any) => (
                 <div
                   key={spec.label}
                   className={cn(
@@ -188,6 +195,7 @@ export default async function productDetailsPage(props: any) {
               ))}
             </div>
           </div>
+          ) : null }
         </div>
       </section>
 
@@ -224,14 +232,14 @@ export default async function productDetailsPage(props: any) {
                   </div>
                   <div className="h-1 bg-border/30 rounded-sm overflow-hidden">
                     {/* Dynamic width must be inline — Tailwind can't generate arbitrary runtime values */}
-                    {/* <div
+            {/* <div
                       className="h-full bg-gradient-to-r from-accent to-accent/80 rounded-sm transition-[width] duration-1000 ease-[cubic-bezier(0.76,0,0.24,1)]"
                       style={{ width: `${(row.payload / maxPayload) * 100}%` }}
                     />
                   </div>
                 </div>
               ))}
-            </div> */} 
+            </div> */}
 
             <p className="font-sans text-[0.58rem] text-fg-ghost tracking-[0.04em] mt-8 leading-[1.7]">
               All load values tested under factory certification conditions.
@@ -327,5 +335,5 @@ export default async function productDetailsPage(props: any) {
       </section> */}
     </PageWrapper>
   );
-  }
+}
 

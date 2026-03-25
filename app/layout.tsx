@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "camera crane India",
     "film equipment",
     "cinema equipment",
-    "RKC series",
+    "SETU series",
     "Bollywood film equipment",
     "Tollywood film equipment",
     "camera crane rental",

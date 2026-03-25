@@ -17,9 +17,9 @@ function urlFor(source: any) {
 }
 
 const query = `*[_type == "blogPost"] | order(publishedAt desc) {
-  _id,
-  title,
-  "slug": slug.current,
+    _id,
+    title,
+    "slug": slug.current,
     publishedAt,
     author->,
     "img": mainImage,
@@ -52,7 +52,7 @@ export default function BlogListingPage() {
 
             {/* Blog Grid */}
             <section className="px-site py-20 pb-32">
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(360px,1fr))] gap-px bg-border ">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border ">
                     {posts.map((post : any) => (
                         <Link key={post._id} href={`/blog/${post.slug}`} className="no-underline block">
                             <div

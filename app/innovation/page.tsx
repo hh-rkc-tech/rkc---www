@@ -6,7 +6,7 @@ import HowWeDoIt from "@/components/organisms/HowWeDoIt";
 
 export const metadata: Metadata = {
   title: "Innovation",
-  description: "First-principles engineering behind RKC telescopic camera cranes. Kevlar belt drive, aerospace-grade alloy, fly-by-wire leveling, and boron steel chassis.",
+  description: "First-principles engineering behind RK Cinematics telescopic camera cranes. Kevlar belt drive, aerospace-grade alloy, fly-by-wire leveling, and boron steel chassis.",
 };
 
 export default function InnovationPage() {
@@ -15,7 +15,7 @@ export default function InnovationPage() {
       <PageHero
         tag="[First Principles Engineering]"
         title="Innovation."
-        description="Every engineering decision begins by asking: what is the fundamental physical requirement? Then we reject every assumption inherited from legacy manufacturers. Four core breakthroughs define the RKC platform."
+        description="Every engineering decision begins by asking: what is the fundamental physical requirement? Then we reject every assumption inherited from legacy manufacturers. Four core breakthroughs define the RK Cinematics platform."
       />
 
       {/* ── Engineering pillars ── */}
@@ -28,7 +28,7 @@ export default function InnovationPage() {
             Ready to apply this engineering to your production?
           </p>
           <p className="font-sans font-light text-[clamp(1.1rem,2.5vw,2rem)] text-fg-muted tracking-[-0.01em]">
-            See the RKC Series in full technical detail.
+            See the SETU Series in full technical detail.
           </p>
         </div>
         <Link

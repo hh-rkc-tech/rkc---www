@@ -27,7 +27,7 @@ export default function ResultsSection() {
         <div>
           <SectionTag>[Technical Data]</SectionTag>
           <Heading>
-            RKC-40 Load Chart
+            SETU-40 Load Chart
             <br />
             <span className="text-fg-faint">&amp; Competitive Benchmark</span>
           </Heading>
@@ -74,12 +74,12 @@ export default function ResultsSection() {
         {/* Comparison table */}
         <div>
           <p className="font-sans text-[0.6rem] tracking-[0.22em] uppercase text-fg-faint mb-8">
-            RKC-40 vs. Competitor Standard
+            SETU-40 vs. Competitor Standard
           </p>
 
           {/* Header row */}
           <div className="grid grid-cols-3 gap-4 pb-3 border-b border-border mb-2">
-            {["Specification", "RKC-40", "Competitor"].map((h) => (
+            {["Specification", "SETU-40", "Competitor"].map((h) => (
               <p
                 key={h}
                 className="font-sans text-[0.55rem] tracking-[0.18em] uppercase text-fg-ghost"

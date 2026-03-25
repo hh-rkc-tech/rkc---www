@@ -80,9 +80,9 @@ export default function ContactPage() {
 
               <ContactInfoBlock label="Facility">
                 <p className="font-sans text-[0.78rem] text-fg-muted leading-[1.6]">
-                  1, Sardar Patel Ring Rd,
+                  1, Kalptaru Industrial Estate,
                   <br />
-                  Odhav Industrial Estate,
+                  Sardar Patel Ring Rd,
                   <br />
                   Odhav,
                   <br />

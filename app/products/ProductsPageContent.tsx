@@ -103,7 +103,7 @@ export default function ProductsPageContent() {
 
       {/* ── Product Grid ── */}
       <section className="px-site py-20 pb-32">
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(360px,1fr))] gap-px bg-border">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
           {filtered.map((product) => (
             <Link key={product._id} href={`/products/${product.slug}`} className="no-underline block">
               <div

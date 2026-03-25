@@ -20,14 +20,13 @@ export const allEventsQuery = `
     dateTime,
     location,
     "slug": slug.current,
-    "img" : coverImage, 
-    lastUpdatedAt 
+    "img" : coverImage
   }`;
 export default async function EventDetailsPage(props: { params: { slug: string } }) {
     const params = (await props.params)
     const slug = params.slug
     const event = await client.fetch(allEventsQuery, { slug });
-    console.log('Fetched event:', event);
+    // console.log('Fetched event:', event);
     if (!event) {
         return (
             <div className="error-state">
@@ -79,7 +78,7 @@ export default async function EventDetailsPage(props: { params: { slug: string }
                         <div className="mb-10">
                             <p style={{ color: '#666' }}>Location : {event.location}</p>
 
-                            <p>{formatPublishedDate(event.lastUpdatedAt)}</p>
+                            <p>{formatPublishedDate(event.dateTime)}</p>
                         </div>
                         <PortableText components={{
                             block: {

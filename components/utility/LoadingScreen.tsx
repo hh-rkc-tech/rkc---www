@@ -62,7 +62,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               animate={{ opacity: 1, letterSpacing: "0.05em" }}
               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
             >
-              RKC
+              RK Cinematics
             </motion.h1>
             <motion.p
               className="font-sans text-xs tracking-[0.3em] text-white/30 uppercase"

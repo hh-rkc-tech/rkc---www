@@ -13,7 +13,7 @@ function urlFor(source: any) {
 }
 
 const query = `*[_type == "blogPost" && slug.current == $slug][0] {
-  title,
+    title,
     "slug": slug.current,
     publishedAt,
     author->,
@@ -34,6 +34,7 @@ export default async function BlogPostPage(props: { params: { slug: string } }) 
             </div>
         );
     }
+    // console.log(post.author)
     return (
         <PageWrapper>
             {/* Breadcrumb */}
@@ -106,7 +107,7 @@ export default async function BlogPostPage(props: { params: { slug: string } }) 
                     <div style={{ textAlign: 'left', marginTop: '5rem', }} className="flex flex-row gap-x-10 pb-10 justify-center">
                         <div>
                             <Image
-                                src={urlFor(post.author.image).url()}
+                                src={urlFor(post.author.mainImage).url()}
                                 alt={`Cover image for ${post.author?.name || 'Unknown Author'}`}
                                 width={400}
                                 height={400}

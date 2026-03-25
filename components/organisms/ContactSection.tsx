@@ -3,7 +3,6 @@
 import Typography from "@/components/atoms/Typography";
 import SectionTag from "@/components/atoms/SectionTag";
 
-
 interface ContactInfoBlockProps {
   label: string;
   children: React.ReactNode;
@@ -22,14 +21,11 @@ function ContactInfoBlock({ label, children }: ContactInfoBlockProps) {
 
 export default function ContactSection() {
     
-
   return (
     <section
       id="contact"
       className="border-t border-border bg-bg-elevated block md:hidden"
     >
-
-
 
       {/* Heading + contact info */}
       <div className="px-site py-28 md:py-36 border border-border bg-white">
@@ -56,7 +52,6 @@ export default function ContactSection() {
                 rkcinematics2807@gmail.com
               </a>
             </ContactInfoBlock>
-
             <ContactInfoBlock label="Support Line">
               <p className="font-sans text-[0.78rem] text-fg-muted">+91 9374218010</p>
               <p className="font-sans text-[0.6rem] text-fg-faint tracking-[0.04em] mt-1">
@@ -66,9 +61,9 @@ export default function ContactSection() {
 
             <ContactInfoBlock label="Facility">
               <p className="font-sans text-[0.78rem] text-fg-muted leading-[1.6]">
-                1, Sardar Patel Ring Rd,
+                1,Kalptaru Industrial Estate, 
                 <br />
-                Odhav Industrial Estate, 
+                Sardar Patel Ring Rd,
                 <br />
                 Odhav, 
                 <br />
@@ -78,9 +73,6 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
-
-
-
     </section>
   );
 }

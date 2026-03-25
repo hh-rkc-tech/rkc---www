@@ -9,6 +9,7 @@ const sitemapLinks = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "Blog", href: "/blog" },
+  // { label: "Events",   href: "/event" },
   // { label: "Innovation", href: "/innovation" },
   // { label: "Showcase",   href: "/showcase" },
   // { label: "Services",   href: "/services" },
@@ -28,7 +29,7 @@ const aboutMeta = [
   { label: "Founded", value: "2016" },
   { label: "Headquarters", value: "Ahmedabad, Gujarat" },
   { label: "Primary Markets", value: "Mumbai · Hyderabad" },
-  { label: "Products", value: "RKC-20 / RKC-40 / RKC-60" },
+  { label: "Products", value: "SETU-20 / SETU-40 / SETU-60" },
   { label: "SLA Zone", value: "48-Hour Response" },
 ];
 

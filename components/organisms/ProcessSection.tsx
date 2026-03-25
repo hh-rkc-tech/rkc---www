@@ -12,7 +12,7 @@ const steps = [
   {
     num: "02",
     title: "Custom Fabrication & CNC",
-    desc: "Every unit is built to your configuration at our Ahmedabad facility. 7075-T6 boom sections are cut and finished. Electronics are wired, calibrated, and benched.",
+    desc: "Every unit is built to your configuration at our Ahmedabad facility. Aero-Space Grade Alluminium sections are cut and finished. Electronics are wired, calibrated, and benched.",
   },
   {
     num: "03",
@@ -30,7 +30,7 @@ const sideInfo = [
   {
     label: "SLA Guarantee",
     value:
-      "Any mechanical failure in Mumbai or Hyderabad met with a replacement unit or specialist within 48 hours.",
+      "Any mechanical failure in Mumbai or Hyderabad met with a replacement unit or specialist within 24 to 48 hours.",
   },
   // {
   //   label: "Business Model",

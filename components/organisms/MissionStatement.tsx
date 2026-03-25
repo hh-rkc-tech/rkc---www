@@ -10,7 +10,7 @@ const meta = [
   { label: "Founded",         value: "2022" },
   { label: "Headquarters",    value: "Ahmedabad, Gujarat" },
   { label: "Primary Markets", value: "Mumbai · Hyderabad" },
-  { label: "Specialty",       value: "Telescopic Cranes, Bases & Carts" },
+  { label: "Specialty",       value: "Telescopic Cranes, Sliders, Dual Axis slider, Camera carts, Dollys." },
 ];
 
 export default function MissionStatement() {

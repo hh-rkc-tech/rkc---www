@@ -11,7 +11,7 @@ const stats = [
     value: "85",
     unit: "kg",
     label: "Max Payload Capacity",
-    sub: "RKC-40 at 10ft extension",
+    sub: "SETU-40 at 10ft extension",
   },
   {
     value: "530",
